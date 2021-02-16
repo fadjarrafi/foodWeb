@@ -164,36 +164,29 @@
       <div class="col-sm-12">
         <ul class="selecton brdr-b-primary mb-70">
           <li><a href="#" class="active" data-select="*"><b>ALL</b></a></li>
-          <li><a href="#" data-select="pizza"><b>PIZZA</b></a></li>
-          <li><a href="#" data-select="pasta"><b>PASTA</b></a></li>
-          <li><a href="#" data-select="appetizer"><b>APPETIZER</b></a></li>
-          <li><a href="#" data-select="desert"><b>DESERT</b></a></li>
+          <li><a href="#" data-select="Pizza"><b>PIZZA</b></a></li>
+          <li><a href="#" data-select="Pasta"><b>PASTA</b></a></li>
+          <li><a href="#" data-select="Appetizer"><b>APPETIZER</b></a></li>
+          <li><a href="#" data-select="Desert"><b>DESERT</b></a></li>
         </ul>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-6 food-menu pizza">
+      {{range .data}}
+      <div class="col-md-6 food-menu {{.Jenis}}">
         <div class="sided-90x mv-30">
-          <div class="s-left"><img src="static/images/chickenloverz.png" alt="Menu Image" class="br-3"></div>
+          <div class="s-left"><img src="static/images/{{.Url_gambar}}" alt="Menu Image" class="br-3"></div>
           <div class="s-right">
-            <h5 class="mb-10"><b>Pizza Chicken Loverz</b><b class="color-primary float-right">Rp. 210.000</b></h5>
-            <p class="pr-70">Pizza Chicken Lovers adalah pizza yang dikhususkan untuk pecinta ayam</p>
+            <h5 class="mb-10"><b>{{.Nama_menu}}</b><b class="color-primary float-right">Rp.{{.Harga}}</b></h5>
+            <p class="pr-70">{{.Deskripsi}}</p>
             <a href="#" class="btn-brdr-primary plr-25"><b>Order</b></a>
           </div>
         </div>
-      </div>
+      </div> 
+      {{end}}
 
-      <div class="col-md-6 food-menu pasta">
-        <div class="sided-90x mv-30">
-          <div class="s-left"><img src="static/images/beeflasagna.png" alt="Menu Image" class="br-3"></div>
-          <div class="s-right">
-            <h5 class="mb-10"><b>Beef Lasagna</b><b class="color-primary float-right">Rp. 89.000</b></h5>
-            <p class="pr-70">Beef lasagna adalah Makanan populer untuk penikmat pasta</p>
-            <a href="#" class="btn-brdr-primary plr-25"><b>Order</b></a>
-          </div>
-        </div>
-      </div>
+      
     </div>
 
   </div>
