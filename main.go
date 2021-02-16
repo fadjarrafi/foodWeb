@@ -42,6 +42,7 @@ func main() {
 	e.GET("/", handler.HomeHandler)
 	e.GET("/about", handler.AboutHandler)
 	e.GET("/baca_menu", handler.BacaData)
+	e.POST("/tambah_menu", handler.TambahData)
 	e.Static("/static", "assets")
 
 	// Start the Echo server

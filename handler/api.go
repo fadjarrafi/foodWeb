@@ -26,6 +26,28 @@ func BacaData(c echo.Context) error {
 	return c.JSON(http.StatusOK, data)
 }
 
+func TambahData(c echo.Context) error {
+	db, err := server.Koneksi()
+
+	defer db.Close()
+
+	var nama = c.FormValue("Nama_menu")
+	var deskripsi = c.FormValue("Deskripsi")
+	var harga = c.FormValue("Harga")
+	var jenis = c.FormValue("Jenis")
+	var url_gambar = c.FormValue("Url_gambar")
+
+	_, err = db.Exec("insert into tbl_menu values (?,?,?,?,?,?)", nil, nama, deskripsi, url_gambar, jenis, harga)
+
+	if err != nil {
+		fmt.Println("Menu gagal ditambahkkan")
+		return c.JSON(http.StatusOK, "Gagal menambahkan menu")
+	} else {
+		fmt.Println("Menu berhasil ditambahkan")
+		return c.JSON(http.StatusOK, "Berhasil menambahkan menu")
+	}
+}
+
 func menu_makanan() {
 	data = nil
 	db, err := server.Koneksi()
