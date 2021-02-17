@@ -48,102 +48,20 @@
     </div>
 
     <div class="row">
+      {{range .datapopuler}}
       <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="center-text mb-30">
           <div class="img-200px mlr-auto pos-relative">
             <h6 class="ribbon-cont"><div class="ribbon-primary"><b></b></div></h6>
-            <img src="static/images/cheeseburger.png" alt="">
+            <img src="static/images/{{.Url_gambar}}" alt="" style="height: 200px;width: 200px;">
           </div>
-          <h5 class="mt-20">Pizza Cheeseburger</h5>
-          <h4 class="mt-5"><b>Rp. 250.000</b></h4>
-          <h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
+          <h5 class="mt-20">{{.Nama_menu}}</h5>
+          <h4 class="mt-5"><b>Rp.{{.Harga}}</b></h4>
+          <h4 class="mt-5"><b>Total Order : {{.Total_order}}</b></h4>
+          <h6 class="mt-20"><a href="/order?id={{.Id_menu}}&nama={{.Nama_menu}}&gambar={{.Url_gambar}}" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
         </div>
       </div>
-
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="center-text mb-30">
-          <div class="img-200px mlr-auto pos-relative">
-            <h6 class="ribbon-cont"><div class="ribbon-primary"><b></b></div></h6>
-            <img src="static/images/cheeseburger.png" alt="">
-          </div>
-          <h5 class="mt-20">Pizza Cheeseburger</h5>
-          <h4 class="mt-5"><b>Rp. 250.000</b></h4>
-          <h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="center-text mb-30">
-          <div class="img-200px mlr-auto pos-relative">
-            <h6 class="ribbon-cont"><div class="ribbon-primary"><b></b></div></h6>
-            <img src="static/images/cheeseburger.png" alt="">
-          </div>
-          <h5 class="mt-20">Pizza Cheeseburger</h5>
-          <h4 class="mt-5"><b>Rp. 250.000</b></h4>
-          <h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="center-text mb-30">
-          <div class="img-200px mlr-auto pos-relative">
-            <h6 class="ribbon-cont"><div class="ribbon-primary"><b></b></div></h6>
-            <img src="static/images/cheeseburger.png" alt="">
-          </div>
-          <h5 class="mt-20">Pizza Cheeseburger</h5>
-          <h4 class="mt-5"><b>Rp. 250.000</b></h4>
-          <h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="center-text mb-30">
-          <div class="img-200px mlr-auto pos-relative">
-            <h6 class="ribbon-cont"><div class="ribbon-primary"><b></b></div></h6>
-            <img src="static/images/cheeseburger.png" alt="">
-          </div>
-          <h5 class="mt-20">Pizza Cheeseburger</h5>
-          <h4 class="mt-5"><b>Rp. 250.000</b></h4>
-          <h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="center-text mb-30">
-          <div class="img-200px mlr-auto pos-relative">
-            <h6 class="ribbon-cont"><div class="ribbon-primary"><b></b></div></h6>
-            <img src="static/images/cheeseburger.png" alt="">
-          </div>
-          <h5 class="mt-20">Pizza Cheeseburger</h5>
-          <h4 class="mt-5"><b>Rp. 250.000</b></h4>
-          <h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="center-text mb-30">
-          <div class="img-200px mlr-auto pos-relative">
-            <h6 class="ribbon-cont"><div class="ribbon-primary"><b></b></div></h6>
-            <img src="static/images/cheeseburger.png" alt="">
-          </div>
-          <h5 class="mt-20">Pizza Cheeseburger</h5>
-          <h4 class="mt-5"><b>Rp. 250.000</b></h4>
-          <h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="center-text mb-30">
-          <div class="img-200px mlr-auto pos-relative">
-            <h6 class="ribbon-cont"><div class="ribbon-primary"><b></b></div></h6>
-            <img src="static/images/cheeseburger.png" alt="">
-          </div>
-          <h5 class="mt-20">Pizza Cheeseburger</h5>
-          <h4 class="mt-5"><b>Rp. 250.000</b></h4>
-          <h6 class="mt-20"><a href="#" class="btn-brdr-primary plr-25"><b>Order Now</b></a></h6>
-        </div>
-      </div>
-
+      {{end}}
     </div>
 
     

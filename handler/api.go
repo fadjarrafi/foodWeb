@@ -10,18 +10,25 @@ import (
 )
 
 type menu struct {
-	Id_menu    string
-	Nama_menu  string
-	Deskripsi  string
-	Jenis      string
-	Harga      string
-	Url_gambar string
+	Id_menu     string
+	Nama_menu   string
+	Deskripsi   string
+	Jenis       string
+	Harga       string
+	Url_gambar  string
+	Total_order string
 }
 
 var data []menu
 
 func BacaData(c echo.Context) error {
-	menu_makanan()
+	menu_populer()
+
+	return c.JSON(http.StatusOK, data)
+}
+
+func BacaPopuler(c echo.Context) error {
+	menu_populer()
 
 	return c.JSON(http.StatusOK, data)
 }
@@ -68,7 +75,7 @@ func InputOrder(c echo.Context) error {
 		fmt.Println("Pesanan berhasil dibuat")
 		return c.HTML(http.StatusOK, "<script>alert('Berhasil membuat pesanan, silahkan tunggu telepon dari kami... Terima Kasih'); window.location='http://localhost:1323';</script>")
 	}
-	return c.Redirect(http.StatusSeeOther, "/")
+
 }
 
 func UbahData(c echo.Context) error {
@@ -112,7 +119,7 @@ func HapusData(c echo.Context) error {
 	}
 }
 
-func menu_makanan() {
+func menu_populer() {
 	data = nil
 	db, err := server.Koneksi()
 	if err != nil {
@@ -121,7 +128,7 @@ func menu_makanan() {
 	}
 	defer db.Close()
 
-	rows, err := db.Query("select * from tbl_menu")
+	rows, err := db.Query("select * from view_totalorder ORDER BY total_order DESC LIMIT 8")
 	if err != nil {
 		fmt.Println(err.Error())
 		return
@@ -130,7 +137,7 @@ func menu_makanan() {
 
 	for rows.Next() {
 		var each = menu{}
-		var err = rows.Scan(&each.Id_menu, &each.Nama_menu, &each.Deskripsi, &each.Url_gambar, &each.Jenis, &each.Harga)
+		var err = rows.Scan(&each.Id_menu, &each.Nama_menu, &each.Deskripsi, &each.Url_gambar, &each.Jenis, &each.Harga, &each.Total_order)
 		if err != nil {
 			fmt.Println(err.Error())
 			return

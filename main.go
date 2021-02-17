@@ -49,6 +49,7 @@ func main() {
 	e.Static("/static", "assets")
 	e.GET("/order", handler.OrderHandler)
 	e.POST("/tambah_order", handler.InputOrder)
+	e.GET("/baca_populer", handler.BacaPopuler)
 
 	// Start the Echo server
 	e.Logger.Fatal(e.Start(":1323"))
