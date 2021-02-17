@@ -34,6 +34,7 @@ func main() {
 	templates := make(map[string]*template.Template)
 	templates["home.html"] = template.Must(template.ParseFiles("view/home.html", "view/base.html"))
 	templates["about.html"] = template.Must(template.ParseFiles("view/about.html", "view/base.html"))
+	templates["order.html"] = template.Must(template.ParseFiles("view/order.html", "view/base.html"))
 	e.Renderer = &TemplateRegistry{
 		templates: templates,
 	}
@@ -46,6 +47,7 @@ func main() {
 	e.PUT("/ubah_menu", handler.UbahData)
 	e.DELETE("/hapus_menu", handler.HapusData)
 	e.Static("/static", "assets")
+	e.GET("/order", handler.OrderHandler)
 
 	// Start the Echo server
 	e.Logger.Fatal(e.Start(":1323"))
