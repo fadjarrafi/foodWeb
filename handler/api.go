@@ -48,6 +48,29 @@ func TambahData(c echo.Context) error {
 	}
 }
 
+func InputOrder(c echo.Context) error {
+	db, err := server.Koneksi()
+
+	defer db.Close()
+
+	var id = c.FormValue("id")
+	var nama_pemesan = c.FormValue("nama_pemesan")
+	var nomor_telepon = c.FormValue("nomor_telepon")
+	var jumlah = c.FormValue("jumlah")
+	var alamat = c.FormValue("alamat")
+
+	_, err = db.Exec("insert into tbl_order values (?,?,?,?,?,?)", nil, id, nama_pemesan, nomor_telepon, alamat, jumlah)
+
+	if err != nil {
+		fmt.Println("Pesanan gagal dibuat")
+		return c.HTML(http.StatusOK, "<strong>Gagal membuat pesanan</strong>")
+	} else {
+		fmt.Println("Pesanan berhasil dibuat")
+		return c.HTML(http.StatusOK, "<script>alert('Berhasil membuat pesanan, silahkan tunggu telepon dari kami... Terima Kasih'); window.location='http://localhost:1323';</script>")
+	}
+	return c.Redirect(http.StatusSeeOther, "/")
+}
+
 func UbahData(c echo.Context) error {
 	db, err := server.Koneksi()
 

@@ -48,6 +48,7 @@ func main() {
 	e.DELETE("/hapus_menu", handler.HapusData)
 	e.Static("/static", "assets")
 	e.GET("/order", handler.OrderHandler)
+	e.POST("/tambah_order", handler.InputOrder)
 
 	// Start the Echo server
 	e.Logger.Fatal(e.Start(":1323"))
