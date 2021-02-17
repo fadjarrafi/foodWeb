@@ -44,6 +44,7 @@ func main() {
 	e.GET("/baca_menu", handler.BacaData)
 	e.POST("/tambah_menu", handler.TambahData)
 	e.PUT("/ubah_menu", handler.UbahData)
+	e.DELETE("/hapus_menu", handler.HapusData)
 	e.Static("/static", "assets")
 
 	// Start the Echo server
