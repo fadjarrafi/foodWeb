@@ -2,7 +2,8 @@ package server
 
 import (
 	"database/sql"
-	_ "mysql-master"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 func Koneksi() (*sql.DB, error) {

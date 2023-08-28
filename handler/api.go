@@ -1,10 +1,12 @@
 package handler
 
 import (
-	"echo/server"
+	// "echo/server"
 	"fmt"
-	_ "mysql-master"
+	"foodweb/server"
 	"net/http"
+
+	_ "github.com/go-sql-driver/mysql"
 
 	"github.com/labstack/echo"
 )

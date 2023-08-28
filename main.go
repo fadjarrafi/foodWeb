@@ -2,15 +2,14 @@ package main
 
 import (
 	"errors"
+	"foodweb/handler"
 	"html/template"
 	"io"
 
 	"github.com/labstack/echo"
-
-	"echo/handler"
 )
 
-//valyala Define the template registry struct
+// valyala Define the template registry struct
 type TemplateRegistry struct {
 	templates map[string]*template.Template
 }
